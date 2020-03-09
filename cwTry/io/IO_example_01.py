@@ -81,9 +81,9 @@ except FileNotFoundError:
 #now interpret file
 file_lines = fin.readlines()
 for index, line in enumerate(file_lines):
-    print("Line[%d] =<%s>"%(index, line))
-    n1, n1_found = find_int(line, "Node1", True) # look for Node1 in line with extra output
-    n2, n2_found = find_int(line, "Node2", False) # look for Node2 in line with less output
+    print("Line[%d] =<%s>"%(index,line))
+    n1, n1_found = find_int(line,"Node1",True) # look for Node1 in line with extra output
+    n2, n2_found = find_int(line,"Node2",False) # look for Node2 in line with less output
     happy = n1_found and n2_found
     if (not happy):
         print("Failed to find input in line <%s>\nn1=%d, n1_found=%r, n2=%d, n2_found=%r"%(line, n1, n1_found, n2, n2_found))
