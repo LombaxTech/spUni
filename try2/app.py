@@ -1,4 +1,7 @@
 # Functions
+import sys
+
+
 def checkIfNumber(input):
     if ((input != 0) and (input != 1) and (input != 2) and (input != 3) and (input != 4) and (input != 5) and (input != 6) and (input != 7) and (input != 8) and (input != 9) and (input != '0') and (input != '1') and (input != '2') and (input != '3') and (input != '4') and (input != '5') and (input != '6') and (input != '7') and (input != '8') and (input != '9')):
         return False
@@ -8,6 +11,7 @@ def checkIfNumber(input):
 
 
 # Start of main program
+
 file = open('testCircuit1.net')
 
 lines = file.readlines()
@@ -26,6 +30,8 @@ countUntilSpace = 0
 spaceFound = False
 
 termsSwitch = False
+
+# *GETTING VALUES IN TERMS BLOCK
 
 for line in lines:
     if (line[0] == '#'):
@@ -52,13 +58,6 @@ for line in lines:
                 # print(line[position + 3: position + 3 + countUntilSpace])
                 RS = line[position + 3: position + 3 + countUntilSpace]
                 print(RS)
-                # for character in line:
-                # if (checkIfNumber())
-
-                # print(checkIfNumber(line[position + 3]))
-
-                # print(line[position + 3:])
-                # VT = line[position + 3]
 
 
 # print(checkIfNumber('6'))

@@ -1,6 +1,7 @@
 # define a circuit between <CIRCUIT> and </CIRCUIT> delimiters
 # Elements have two node numbers and either a 
 # resistance R=1/G Ohms or a conductance G=1/R Seimens.
+
 <CIRCUIT>
 n1=1 n2=2 R=47
 n1=2 n2=0 R=100
@@ -37,9 +38,9 @@ Vout V
 Iin A
 Iout A
 Pin W
-Zout Ohms
+Zout Ohms -- 
 Pout W
-Zin Ohms
-Av 
+Zin Ohms --
+Av --
 Ai
 </OUTPUT>
