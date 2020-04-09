@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def checkIfNumber(input):
     if ((input != 0) and (input != 1) and (input != 2) and (input != 3) and (input != 4) and (input != 5) and (input != 6) and (input != 7) and (input != 8) and (input != 9) and (input != '0') and (input != '1') and (input != '2') and (input != '3') and (input != '4') and (input != '5') and (input != '6') and (input != '7') and (input != '8') and (input != '9') and (input != '.')):
         return False
@@ -16,8 +19,20 @@ def getPositionOfSpace(startPosition):
     return (startPosition + countUntilSpace)
 
 
-file = open('testCircuit1.net')
+def productOfList(myList):
+    product = 1
+    for matrix in myList:
+        if (type(product) == int):
+            product = matrix
+        else:
+            product = product @ matrix
+    return product
+
+
+file = open('L7.net')
+# file = open('testCircuit1.net')
 lines = file.readlines()
+matrixList = []
 
 circuitSwitch = False
 
@@ -38,19 +53,34 @@ for line in lines:
             nodeOne = int(nodeOne)
             nodeTwo = int(nodeTwo)
 
-            if (nodeTwo == 0):
-                pass
-                # print('this is a shunt')
-            else:
-                pass
-                # print('this is a series')
-
             if (line[10] == 'R'):
                 R = line[12:getPositionOfSpace(12)]
                 R = float(R)
-                print(R)
+                # print(R)
             elif(line[10] == 'G'):
                 G = line[12:getPositionOfSpace(12)]
                 G = float(G)
                 R = 1/G
-                print('R is:', R, 'G is:', G)
+                # print('R is:', R, 'G is:', G)
+
+            # nodeTwo = 0 => shunt, else => series
+            if (nodeTwo == 0):
+                matrixList.append(np.array([
+                    [1, 0],
+                    [(1/R), 1]
+                ]).astype(float))
+            else:
+                matrixList.append(np.array([
+                    [1, R],
+                    [0, 1]
+                ]).astype(float))
+
+            # print(R)
+
+# for matrix in matrixList:
+#     print(matrix)
+
+resultantMatrix = productOfList(matrixList)
+print(resultantMatrix)
+
+# print(productOfList(matrixList))
