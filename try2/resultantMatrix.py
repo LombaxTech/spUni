@@ -1,5 +1,7 @@
 import numpy as np
 
+# * FUNCTIONS
+
 
 def checkIfNumber(input):
     if ((input != 0) and (input != 1) and (input != 2) and (input != 3) and (input != 4) and (input != 5) and (input != 6) and (input != 7) and (input != 8) and (input != 9) and (input != '0') and (input != '1') and (input != '2') and (input != '3') and (input != '4') and (input != '5') and (input != '6') and (input != '7') and (input != '8') and (input != '9') and (input != '.')):
