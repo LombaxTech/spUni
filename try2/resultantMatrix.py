@@ -45,7 +45,7 @@ for line in lines:
         if ("<CIRCUIT>" in line):
             circuitSwitch = True
 
-        elif ("</CIRCUIT" in line):
+        elif ("</CIRCUIT>" in line):
             circuitSwitch = False
 
         elif (circuitSwitch == True):
@@ -86,3 +86,50 @@ resultantMatrix = productOfList(matrixList)
 print(resultantMatrix)
 
 # print(productOfList(matrixList))
+
+# def getResultantMatrix(frequency):
+#     for line in lines:
+#     if (line[0] == '#'):
+#         pass
+#     else:
+#         if ("<CIRCUIT>" in line):
+#             circuitSwitch = True
+
+#         elif ("</CIRCUIT" in line):
+#             circuitSwitch = False
+
+#         elif (circuitSwitch == True):
+#             nodeOne = line[3]
+#             nodeTwo = line[8]
+
+#             nodeOne = int(nodeOne)
+#             nodeTwo = int(nodeTwo)
+
+#             # !===========================
+#             if (line[10] == 'C'):
+#                 C = line[12:getPositionOfSpace(12)]
+#                 R = 1/j*2*3*frequency
+#             # !================================
+
+#             if (line[10] == 'R'):
+#                 R = line[12:getPositionOfSpace(12)]
+#                 R = float(R)
+#                 # print(R)
+#             elif(line[10] == 'G'):
+#                 G = line[12:getPositionOfSpace(12)]
+#                 G = float(G)
+#                 R = 1/G
+#                 # print('R is:', R, 'G is:', G)
+
+#             # nodeTwo = 0 => shunt, else => series
+#             if (nodeTwo == 0):
+#                 matrixList.append(np.array([
+#                     [1, 0],
+#                     [(1/R), 1]
+#                 ]).astype(float))
+#             else:
+#                 matrixList.append(np.array([
+#                     [1, R],
+#                     [0, 1]
+#                 ]).astype(float))
+# for frequency in frequencies:
