@@ -8,6 +8,6 @@
 z1 = 3 + 4j
 z2 = 10e+6
 z3 = .2e1
-
-# print(type(z3))
-print(z3)
+c = 3.18e-9
+# print(type(c))
+# print(z3)
