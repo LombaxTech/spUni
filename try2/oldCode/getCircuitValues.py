@@ -36,8 +36,6 @@ for line in lines:
 
         elif (circuitSwitch == True):
 
-            # print(line)
-
             nodeOne = line[3]
             nodeTwo = line[8]
 

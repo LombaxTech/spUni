@@ -24,6 +24,9 @@ for line in lines:
 
         elif(circuitSwitch == True):
             print(line)
+            R = line[12: 13]
+            # TODO print out the resistance value
+            # TODO print out the matrix with the R value
 
 
 # sentence = 'Hello my name is Rakib'

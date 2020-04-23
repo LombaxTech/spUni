@@ -1,4 +1,5 @@
 import numpy as np
+import sys
 
 # * FUNCTIONS
 
@@ -32,7 +33,7 @@ def productOfList(myList):
 
 
 file = open('L7.net')
-# file = open('testCircuit1.net')
+file = open('testCircuit1.net')
 lines = file.readlines()
 matrixList = []
 
@@ -64,6 +65,10 @@ for line in lines:
                 G = float(G)
                 R = 1/G
                 # print('R is:', R, 'G is:', G)
+            elif(line[10] == 'C'):
+                C = line[12:]
+                C = float(C)
+                R = 1 / (1*j * 2 * 3.14 * frequency * C)
 
             # nodeTwo = 0 => shunt, else => series
             if (nodeTwo == 0):
