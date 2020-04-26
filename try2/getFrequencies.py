@@ -29,7 +29,7 @@ for line in lines:
 
 fStart = 10.0
 fEnd = 10e+6
-nFreqs = 50
+nFreqs = 10
 
 gap = (fEnd - fStart)/(nFreqs - 1)
 
@@ -42,5 +42,5 @@ for n in range(nFreqs):
 print(freqs)
 
 
-for frequency in freqs:
-    getMatrix(frequency)
+# for frequency in freqs:
+#     getMatrix(frequency)

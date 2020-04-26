@@ -1,3 +1,5 @@
+# ! GAYATH STOP COPYING!!!!
+
 import numpy as np
 
 # * FUNCTIONS
