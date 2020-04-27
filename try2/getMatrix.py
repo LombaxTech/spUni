@@ -1,5 +1,3 @@
-# ! GAYATH STOP COPYING!!!!
-
 import numpy as np
 
 # * FUNCTIONS
@@ -70,12 +68,12 @@ def getResultantMatrix(frequency):
                     matrixList.append(np.array([
                         [1, 0],
                         [(1/R), 1]
-                    ]).astype(float))
+                    ]).astype(complex))
                 else:
                     matrixList.append(np.array([
                         [1, R],
                         [0, 1]
-                    ]).astype(float))
+                    ]).astype(complex))
 
     resultantMatrix = productOfList(matrixList)
     return resultantMatrix

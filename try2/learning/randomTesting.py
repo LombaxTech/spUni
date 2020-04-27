@@ -116,7 +116,7 @@ def getMatrix():
                     ]).astype(float))
 
     resultantMatrix = productOfList(matrixList)
-    print(resultantMatrix)
+    # print(resultantMatrix)
 
 
 frequencyList = [10, 100, 1000]
@@ -124,3 +124,11 @@ frequencyList = [10, 100, 1000]
 for frequency in frequencyList:
     matrix = getMatrix()
     # TODO: Figure out Vin, Vout,
+
+# print(np.conj(10 + 6j))
+
+randomList = []
+
+randomList.append('item1')
+
+print(randomList)
