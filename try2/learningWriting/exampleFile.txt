@@ -1,0 +1,2 @@
+      Freq           Vin                   Vout                    Iin                   Iout                    Pin                   Zout                   Pout                    Zin                     Av                     Ai          
+        Hz             V                      V                      A                      A                      W                   Ohms                      W                   Ohms                      L                      L          
