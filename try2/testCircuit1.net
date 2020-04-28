@@ -12,8 +12,8 @@ n1=4 n2=0 R=82
 n1=4 n2=5 R=25
 n1=5 n2=0 R=280
 # components do not have to follow their order in the circuit
-n1=6 n2=0 R=100
 n1=5 n2=6 G=0.02
+n1=6 n2=0 R=100
 </CIRCUIT>
 
 # define the terminations between <TERMS> and </TERMS> delimiters

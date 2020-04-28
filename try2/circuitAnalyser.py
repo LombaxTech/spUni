@@ -18,7 +18,8 @@ def productOfList(myList):
 # file = open(inputFile)
 
 
-file = open('testCircuit2.net')
+# file = open('testCircuit3.net')
+file = open('testCircuit1.net')
 lines = file.readlines()
 
 # * FUNCTION TO GET RESULTANT MATRIX AT A PARTICULAR FREQUENCY
@@ -157,7 +158,7 @@ for line in lines:
             if (position != -1):
                 GS = line[position + 3:]
                 GS = float(GS)
-                RS = 1/G
+                RS = 1/GS
 
             position = line.find('RL')
             if (position != -1):
