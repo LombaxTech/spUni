@@ -18,15 +18,15 @@ def productOfList(myList):
 # file = open(inputFile)
 
 
-# file = open('testCircuit3.net')
-file = open('testCircuit1.net')
+# file = open('testCircuitBrexit.net')
+file = open('testCircuit2.net')
 lines = file.readlines()
 
 # * FUNCTION TO GET RESULTANT MATRIX AT A PARTICULAR FREQUENCY
 
 
 def getResultantMatrix(frequency):
-    matrixList = []
+    toBeSortedList = []
     circuitSwitch = False
 
     for line in lines:
@@ -73,21 +73,34 @@ def getResultantMatrix(frequency):
                 # ? nodeTwo = 0 => shunt, else => series
 
                 if (nodeTwo == 0):
-                    matrixList.append(np.array([
-                        [1, 0],
-                        [(1/R), 1]
-                    ]).astype(complex))
+                    toBeSortedList.append({
+                        'nodeOne': nodeOne,
+                        'matrix': np.array([
+                            [1, 0],
+                            [(1/R), 1]
+                        ]).astype(complex)
+                    })
                 else:
-                    matrixList.append(np.array([
-                        [1, R],
-                        [0, 1]
-                    ]).astype(complex))
+                    toBeSortedList.append({
+                        'nodeOne': nodeOne,
+                        'matrix': np.array([
+                            [1, R],
+                            [0, 1]
+                        ]).astype(complex)
+                    })
 
-    resultantMatrix = productOfList(matrixList)
+    sortedList = sorted(toBeSortedList, key=lambda i: i['nodeOne'])
+    sortedMatrixList = []
+
+    for obj in sortedList:
+        # print(obj['matrix'])
+        sortedMatrixList.append(obj['matrix'])
+
+    resultantMatrix = productOfList(sortedMatrixList)
     return resultantMatrix
 
-# * GETTING THE FREQUENCIES IN THE FILE
 
+# * GETTING THE FREQUENCIES IN THE FILE
 
 termsSwitch = False
 
@@ -220,3 +233,14 @@ for frequency in frequencyList:
 
 for key in valuesList[0]:
     print(key, valuesList[0][key])
+
+print('\n')
+
+for key in valuesList[1]:
+    print(key, valuesList[1][key])
+
+
+print('\n')
+
+for key in valuesList[2]:
+    print(key, valuesList[2][key])
