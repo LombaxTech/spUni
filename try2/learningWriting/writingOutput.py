@@ -1,6 +1,3 @@
-# name = 'Deku'
-
-# text = ('Hello\nYo!!!')
 
 # # textTwo = ('''Hello
 # #                 What

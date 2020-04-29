@@ -13,14 +13,27 @@ def productOfList(myList):
             product = product @ matrix
     return product
 
-# TODO: implement this in the end
-# inputFile = sys.argv[1]
-# file = open(inputFile)
+# * READING INPUT FILE AND DEFINING OUTPUT FILE
 
 
-# file = open('testCircuitBrexit.net')
-file = open('testCircuit2.net')
+inputFile = sys.argv[1]
+
+file = open(inputFile)
 lines = file.readlines()
+
+for line in lines:
+    position = line.find('File_name')
+    if (position != -1):
+        outputFileName = line[12:]
+        outputFileName = outputFileName[:-1]
+
+try:
+    outputFileName
+except:
+    inputFile = inputFile[:-4]
+    outputFileName = inputFile + '.out'
+
+# print(len(outputFileName))
 
 # * FUNCTION TO GET RESULTANT MATRIX AT A PARTICULAR FREQUENCY
 
@@ -189,7 +202,7 @@ for line in lines:
 
 # * CALCULATE MATRIX AT EACH FREQUENCY
 
-valuesList = []
+valuesObjectList = []
 
 for frequency in frequencyList:
     resultantMatrix = getResultantMatrix(frequency)
@@ -227,20 +240,65 @@ for frequency in frequencyList:
 
     # print(values)
 
-    valuesList.append(values)
+    valuesObjectList.append(values)
 
 # print(valuesList[0])
 
-for key in valuesList[0]:
-    print(key, valuesList[0][key])
 
-print('\n')
-
-for key in valuesList[1]:
-    print(key, valuesList[1][key])
+# for key in valuesList[0]:
+#     print(key, valuesList[0][key])
 
 
-print('\n')
+# print('\n')
 
-for key in valuesList[2]:
-    print(key, valuesList[2][key])
+# for key in valuesList[1]:
+#     print(key, valuesList[1][key])
+
+
+# print('\n')
+
+
+# for key in valuesList[2]:
+#     print(key, valuesList[2][key])
+
+# TODO: handle errors
+
+# TODO: handle for when node value exceeds 10
+
+# * WRITING TO THE OUTPUT FILE
+
+outputFile = open(outputFileName, 'w')
+
+outputFile.write('      Freq           Vin                   Vout                    Iin                   Iout                    Pin                   Zout                   Pout                    Zin                     Av                     Ai          ')
+outputFile.write('\n        Hz             V                      V                      A                      A                      W                   Ohms                      W                   Ohms                      L                      L          ')
+
+for valuesObject in valuesObjectList:
+
+    outputFile.write('\n')
+
+    for key in valuesObject:
+
+        realPart = valuesObject[key].real
+        imaginaryPart = valuesObject[key].imag
+
+        realPart = '%.3e' % realPart
+        imaginaryPart = '%.3e' % imaginaryPart
+
+        if (key == 'frequency'):
+            outputFile.write(' ' + realPart)
+        else:
+            # * IMAGINARY POSITIVE & REAL POSITIVE
+            if ((float(imaginaryPart) >= 0) and (float(realPart) >= 0)):
+                outputFile.write('  ' + realPart + '+j ' + imaginaryPart)
+
+            # * IMAGINARY NEGATIVE & REAL POSTIVE
+            elif((float(imaginaryPart) < 0) and (float(realPart) >= 0)):
+                outputFile.write('  ' + realPart + '+j' + imaginaryPart)
+
+            # * IMAGINARY POSITIVE & REAL NEGATIVE
+            if ((float(imaginaryPart) >= 0) and (float(realPart) < 0)):
+                outputFile.write(' ' + realPart + '+j ' + imaginaryPart)
+
+            # * IMAGINARY NEGATIVE & REAL NEGATIVE
+            elif((float(imaginaryPart) < 0) and (float(realPart) < 0)):
+                outputFile.write(' ' + realPart + '+j' + imaginaryPart)
