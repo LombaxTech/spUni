@@ -4,6 +4,7 @@
 
 import numpy as np
 import sys
+import math
 
 z1 = 1
 z2 = 1.0
@@ -54,8 +55,8 @@ for n in range(nFreqs)[1:]:
 # file = open(sys.argv[1])
 
 
-file = open('../testCircuit1.net')
-lines = file.readlines()
+# file = open('../testCircuit1.net')
+# lines = file.readlines()
 
 
 def productOfList(myList):
@@ -119,16 +120,18 @@ def getMatrix():
     # print(resultantMatrix)
 
 
-frequencyList = [10, 100, 1000]
+# frequencyList = [10, 100, 1000]
 
-for frequency in frequencyList:
-    matrix = getMatrix()
-    # TODO: Figure out Vin, Vout,
+# for frequency in frequencyList:
+#     matrix = getMatrix()
+#     # TODO: Figure out Vin, Vout,
 
 # print(np.conj(10 + 6j))
 
-randomList = []
+# randomList = []
 
-randomList.append('item1')
+# randomList.append('item1')
 
-print(randomList)
+# print(randomList)
+
+print(math.pi)

@@ -1,5 +1,6 @@
 import sys
 import numpy as np
+import math
 
 inputFile = sys.argv[1]
 outputFileName = sys.argv[2]
@@ -21,18 +22,6 @@ try:
 
     file = open(inputFile)
     lines = file.readlines()
-
-    # for line in lines:
-    #     position = line.find('File_name')
-    #     if (position != -1):
-    #         outputFileName = line[12:]
-    #         outputFileName = outputFileName[:-1]
-
-    # try:
-    #     outputFileName
-    # except:
-    #     inputFile = inputFile[:-4]
-    #     outputFileName = inputFile + '.out'
 
     # * FUNCTION TO GET RESULTANT MATRIX AT A PARTICULAR FREQUENCY
 
@@ -69,12 +58,12 @@ try:
                     elif(line[10] == 'C'):
                         C = line[12:]
                         C = float(C)
-                        R = 1 / (1j * 2 * 3.14 * frequency * C)
+                        R = 1 / (1j * 2 * math.pi * frequency * C)
 
                     elif(line[10] == 'L'):
                         L = line[12:]
                         L = float(L)
-                        R = 1j * 2 * 3.14 * frequency * L
+                        R = 1j * 2 * math.pi * frequency * L
 
                     # ? nodeTwo = 0 => shunt, else => series
 
