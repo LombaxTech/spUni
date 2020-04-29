@@ -1,0 +1,31 @@
+Command is:python circuitAnalyser.py ./Data_files/b_Tee_03.net ./User_files/b_Tee_03.out >./User_files/b_Tee_03_run.log 2>&1
+OS returns 0 from execution of command
+For files ./Data_files/b_Tee_03.out and ./User_files/b_Tee_03.out filecmp returns same=False
+			Detailed testing:
+Working on 12 lines
+Line 1 is OK
+Error found in line 2 from character 229
+L1=<        Hz             V                      V                      A                      A                      W                   Ohms                      W                   Ohms                      L                     dB          >
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------^
+L2=<        Hz             V                      V                      A                      A                      W                   Ohms                      W                   Ohms                      L                      L          >
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------^
+Line 3 variable 19 differs, perfect=-6.119, user=0.4944
+Line length differs, perfect file line has 241 character while user file has 240
+Line 4 variable 19 differs, perfect=-6.119, user=0.4944
+Line length differs, perfect file line has 241 character while user file has 240
+Line 5 variable 19 differs, perfect=-6.119, user=0.4944
+Line length differs, perfect file line has 241 character while user file has 240
+Line 6 variable 19 differs, perfect=-6.119, user=0.4944
+Line length differs, perfect file line has 241 character while user file has 240
+Line 7 variable 19 differs, perfect=-6.119, user=0.4944
+Line length differs, perfect file line has 241 character while user file has 240
+Line 8 variable 19 differs, perfect=-6.119, user=0.4944
+Line length differs, perfect file line has 241 character while user file has 240
+Line 9 variable 19 differs, perfect=-6.119, user=0.4944
+Line length differs, perfect file line has 241 character while user file has 240
+Line 10 variable 19 differs, perfect=-6.119, user=0.4944
+Line length differs, perfect file line has 241 character while user file has 240
+Line 11 variable 19 differs, perfect=-6.119, user=0.4944
+Line length differs, perfect file line has 241 character while user file has 240
+Line 12 variable 19 differs, perfect=-6.119, user=0.4944
+Line length differs, perfect file line has 241 character while user file has 240

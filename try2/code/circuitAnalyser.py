@@ -1,7 +1,7 @@
 import sys
 import numpy as np
 
-# * FUNCTIONS
+# * FUNCTION TO GET THE PRODUCT OF A LIST OF MATRICES
 
 
 def productOfList(myList):
@@ -17,23 +17,24 @@ def productOfList(myList):
 
 
 inputFile = sys.argv[1]
+outputFileName = sys.argv[2]
+
+print(inputFile, outputFileName)
 
 file = open(inputFile)
 lines = file.readlines()
 
-for line in lines:
-    position = line.find('File_name')
-    if (position != -1):
-        outputFileName = line[12:]
-        outputFileName = outputFileName[:-1]
+# for line in lines:
+#     position = line.find('File_name')
+#     if (position != -1):
+#         outputFileName = line[12:]
+#         outputFileName = outputFileName[:-1]
 
-try:
-    outputFileName
-except:
-    inputFile = inputFile[:-4]
-    outputFileName = inputFile + '.out'
-
-# print(len(outputFileName))
+# try:
+#     outputFileName
+# except:
+#     inputFile = inputFile[:-4]
+#     outputFileName = inputFile + '.out'
 
 # * FUNCTION TO GET RESULTANT MATRIX AT A PARTICULAR FREQUENCY
 
@@ -62,14 +63,11 @@ def getResultantMatrix(frequency):
                 if (line[10] == 'R'):
                     R = line[12:]
                     R = float(R)
-                    # print('Value of R:', R)
 
                 elif(line[10] == 'G'):
                     G = line[12:]
                     G = float(G)
                     R = 1/G
-                    # print('Value of G:', G, 'Value of R:', R)
-                    # TODO: Handle error if value is BREXIT for example
 
                 elif(line[10] == 'C'):
                     C = line[12:]
@@ -80,8 +78,6 @@ def getResultantMatrix(frequency):
                     L = line[12:]
                     L = float(L)
                     R = 1j * 2 * 3.14 * frequency * L
-
-                # print(R)
 
                 # ? nodeTwo = 0 => shunt, else => series
 
@@ -106,7 +102,6 @@ def getResultantMatrix(frequency):
     sortedMatrixList = []
 
     for obj in sortedList:
-        # print(obj['matrix'])
         sortedMatrixList.append(obj['matrix'])
 
     resultantMatrix = productOfList(sortedMatrixList)
@@ -146,11 +141,6 @@ frequencyList = []
 for n in range(nFreqs):
     frequencyList = frequencyList + [fStart + n*gap]
 
-# print(fStart)
-# print(fEnd)
-# print('value of nFreqs is:', nFreqs)
-# print('value of gap:', gap)
-# print(frequencyList)
 
 # * GET THE VALUES IN THE <TERMS> BLOCK
 
@@ -200,7 +190,7 @@ for line in lines:
 # if (RS != 0):
 #     print(RS)
 
-# * CALCULATE MATRIX AT EACH FREQUENCY
+# * CALCULATE MATRIX AND GET VALUES OF CIRCUIT AT EACH FREQUENCY
 
 valuesObjectList = []
 
@@ -238,28 +228,8 @@ for frequency in frequencyList:
         'Ai': Ai
     }
 
-    # print(values)
-
     valuesObjectList.append(values)
 
-# print(valuesList[0])
-
-
-# for key in valuesList[0]:
-#     print(key, valuesList[0][key])
-
-
-# print('\n')
-
-# for key in valuesList[1]:
-#     print(key, valuesList[1][key])
-
-
-# print('\n')
-
-
-# for key in valuesList[2]:
-#     print(key, valuesList[2][key])
 
 # TODO: handle errors
 
@@ -302,3 +272,6 @@ for valuesObject in valuesObjectList:
             # * IMAGINARY NEGATIVE & REAL NEGATIVE
             elif((float(imaginaryPart) < 0) and (float(realPart) < 0)):
                 outputFile.write(' ' + realPart + '+j' + imaginaryPart)
+
+print('successfully ran')
+print('damn')
