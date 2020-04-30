@@ -272,6 +272,3 @@ for valuesObject in valuesObjectList:
             # * IMAGINARY NEGATIVE & REAL NEGATIVE
             elif((float(imaginaryPart) < 0) and (float(realPart) < 0)):
                 outputFile.write(' ' + realPart + '+j' + imaginaryPart)
-
-print('successfully ran')
-print('damn')
