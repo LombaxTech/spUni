@@ -1,3 +1,5 @@
+# PROGRAM BY RAKIB KHAN - rk704
+
 import sys
 import numpy as np
 import math
@@ -213,8 +215,6 @@ try:
         }
 
         valuesObjectList.append(values)
-
-    # TODO: handle errors
 
     # TODO: handle for when node value exceeds 10
 
